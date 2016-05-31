@@ -1,0 +1,23 @@
+<h1>Task Manager</h1>
+
+<ul>
+  <% @tasks.each do |task| %>
+  <li>
+    <%= link_to task.name, task_path(task) %>
+
+    <%= link_to "edit", edit_task_path(task) %>
+
+    <%= link_to "Delete", task_path(task),
+    method: :delete,
+    data: { confirm: "Are you sure?" } %>
+  </li>
+  <% end %>
+</ul>
+
+<button type="button" id="myButton" data-loading-text="Loading..." class="btn-blue" autocomplete="off">
+ <%= link_to "new task", new_task_path %>
+</button>
+
+
+
+
